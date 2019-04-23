@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lista_mercado/modules/Commons/Pages/layout.dart';
+import 'package:lista_mercado/modules/Home/widgets/itemList.dart';
 
 class ActionsAdicionar {
 
@@ -48,7 +49,23 @@ class ActionsAdicionar {
                 child: Text('Adicionar', style: TextStyle(color: Colors.white)),
                 onPressed: (){
                   print(_nome.text);
-                  Navigator.of(context).pop();
+                  ItemList.setItem(
+                    ListTile(
+                      leading : Icon(Icons.pages),
+                      title   : Text(_nome.text),
+                      trailing: GestureDetector(
+                        onTap: () {
+                          print('item removido');
+                          //ItemList.removeItem(item);
+                        },
+                        child: IconTheme(
+                          data: IconThemeData(color: Colors.red),
+                          child: Icon(Icons.delete),
+                        ),
+                      ),
+                    )
+                  );
+                  Navigator.of(context).pushNamedAndRemoveUntil('home-page',ModalRoute.withName('/'));
                 },
               ),
 

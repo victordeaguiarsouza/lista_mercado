@@ -23,7 +23,7 @@ class Layout {
       appBar: AppBar(
         backgroundColor: Colors.purple,
         title: Center(
-          child: Text("App Teste"),
+          child: Text("App Lista"),
         ),
       ),
 
